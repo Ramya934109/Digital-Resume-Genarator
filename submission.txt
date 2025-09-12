@@ -1,0 +1,6 @@
+YouTube Demo Link: <paste link>
+GitHub Repo Link: https://github.com/yourname/resume-generator
+Highlights:
+- Live form → preview → PDF export
+- Two templates (Modern / Classic)
+- Clean code + README + instructions

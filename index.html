@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Resume Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #1E3A8A; /* Professional Navy Blue */
+      color: white;
+    }
+
+    header h1 {
+      font-size: 55px; /* Big size */
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    form {
+      max-width: 650px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    form label {
+      font-weight: 600;
+      display: block;
+      margin-top: 15px;
+      color: #1E3A8A;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #1E3A8A; /* Professional Button */
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      width: 100%;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background-color: #162c6b; /* Darker Navy */
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Digital Resume Generator</h1>
+  </header>
+
+  <form>
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone" required>
+
+    <label for="education">Education:</label>
+    <textarea id="education" name="education" rows="3"></textarea>
+
+    <label for="skills">Skills:</label>
+    <textarea id="skills" name="skills" rows="3"></textarea>
+
+    <label for="experience">Experience:</label>
+    <textarea id="experience" name="experience" rows="3"></textarea>
+
+    <button type="submit">Generate Resume</button>
+  </form>
+
+</body>
+</html>
