@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="styles.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resume Generator</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
@@ -14,65 +13,66 @@
   </header>
 
   <div class="container">
-    <!-- Form Panel -->
+    <!-- FORM PANEL -->
     <div class="panel form-panel">
       <h2>Enter Your Details</h2>
       <label for="name">Full Name</label>
-      <input type="text" id="name" placeholder="John Doe">
+      <input type="text" id="name" placeholder="John Doe" />
+      <label for="role">Role / Title</label>
+      <input type="text" id="role" placeholder="Web Developer" />
       <label for="email">Email</label>
-      <input type="email" id="email" placeholder="john@example.com">
+      <input type="email" id="email" placeholder="john@example.com" />
       <label for="phone">Phone</label>
-      <input type="tel" id="phone" placeholder="123-456-7890">
+      <input type="tel" id="phone" placeholder="123-456-7890" />
       <label for="skills">Skills</label>
       <textarea id="skills" placeholder="e.g., HTML, CSS, JavaScript"></textarea>
       <label for="experience">Experience</label>
       <textarea id="experience" placeholder="e.g., 3 years at XYZ Corp"></textarea>
       <label for="education">Education</label>
       <textarea id="education" placeholder="e.g., B.Tech in Computer Science"></textarea>
-      <!-- Projects Section -->
-<section class="section projects">
-  <h3>Projects</h3>
-  <div class="project">
-    <label for="projectTitle">Project Title</label>
-    <input type="text" id="projectTitle" placeholder="e.g., Personal Portfolio">
-    
-    <label for="projectTech">Technologies Used</label>
-    <input type="text" id="projectTech" placeholder="e.g., HTML, CSS, JavaScript">
-    
-    <label for="projectDesc">Description</label>
-    <textarea id="projectDesc" placeholder="e.g., A responsive personal portfolio website"></textarea>
-    
-    <label for="projectLink">Project Link</label>
-    <input type="url" id="projectLink" placeholder="https://example.com">
-  </div>
-  <!-- Add more projects as needed -->
-</section>
 
-<!-- Internships Section -->
-<section class="section internships">
-  <h3>Internships</h3>
-  <div class="internship">
-    <label for="internPosition">Position</label>
-    <input type="text" id="internPosition" placeholder="e.g., Frontend Developer Intern">
-    
-    <label for="internCompany">Company</label>
-    <input type="text" id="internCompany" placeholder="e.g., XYZ Corp">
-    
-    <label for="internDuration">Duration</label>
-    <input type="text" id="internDuration" placeholder="e.g., June 2024 – August 2024">
-    
-    <label for="internResponsibilities">Responsibilities</label>
-    <textarea id="internResponsibilities" placeholder="e.g., Developed UI components using React"></textarea>
-  </div>
-  <!-- Add more internships as needed -->
-</section>
+      <!-- PROJECT -->
+      <section class="section">
+        <h3>Project</h3>
+        <label for="projectTitle">Title</label>
+        <input type="text" id="projectTitle" placeholder="Personal Portfolio" />
+        <label for="projectTech">Technologies</label>
+        <input type="text" id="projectTech" placeholder="HTML, CSS, JS" />
+        <label for="projectDesc">Description</label>
+        <textarea id="projectDesc" placeholder="Responsive personal portfolio website"></textarea>
+        <label for="projectLink">Link</label>
+        <input type="url" id="projectLink" placeholder="https://example.com" />
+      </section>
+
+      <!-- INTERNSHIP -->
+      <section class="section">
+        <h3>Internship</h3>
+        <label for="internPosition">Position</label>
+        <input type="text" id="internPosition" placeholder="Frontend Developer Intern" />
+        <label for="internCompany">Company</label>
+        <input type="text" id="internCompany" placeholder="XYZ Corp" />
+        <label for="internDuration">Duration</label>
+        <input type="text" id="internDuration" placeholder="Jun 2024 – Aug 2024" />
+        <label for="internResponsibilities">Responsibilities</label>
+        <textarea id="internResponsibilities" placeholder="Developed UI components using React"></textarea>
+      </section>
+
+      <!-- LANGUAGES -->
+      <label for="languagesSelect">Languages Known</label>
+      <select id="languagesSelect">
+        <option value="">Select</option>
+        <option>English</option>
+        <option>Hindi</option>
+        <option>Telugu</option>
+        <option>Spanish</option>
+      </select>
 
       <div class="actions">
         <button id="generateBtn">Generate Resume</button>
       </div>
     </div>
 
-    <!-- Preview Panel -->
+    <!-- PREVIEW PANEL -->
     <div class="panel preview-panel">
       <div id="resumePreview">
         <div id="resume">
@@ -80,93 +80,133 @@
             <div class="name" id="resumeName">Your Name</div>
             <div class="role" id="resumeRole">Your Role</div>
           </div>
+
           <div class="contact">
             <p id="resumeEmail">your@email.com</p>
             <p id="resumePhone">000-000-0000</p>
           </div>
+
           <div class="section">
             <h3>Skills</h3>
             <p id="resumeSkills">Your Skills</p>
           </div>
+
           <div class="section">
             <h3>Experience</h3>
             <p id="resumeExperience">Your Work Experience</p>
           </div>
+
           <div class="section">
             <h3>Education</h3>
-            <p id="resumeEducation">Your Education Details</p>
+            <p id="resumeEducation">Your Education</p>
           </div>
 
-          <!-- Projects Section -->
-<div class="section">
-  <h3>Projects</h3>
-  <div class="project">
-    <h4>Project Title</h4>
-    <p class="project-duration">Duration: <span>Jan 2024 – Mar 2024</span></p>
-    <p class="project-description">Brief description of the project, highlighting your role and key achievements.</p>
-  </div>
-  <!-- Add more projects as needed -->
-</div>
+          <div class="section">
+            <h3>Projects</h3>
+            <div id="resumeProject">
+              <h4>Project Title</h4>
+              <p class="tech">Tech: …</p>
+              <p class="desc">Description</p>
+              <p class="link"><a href="#">Link</a></p>
+            </div>
+          </div>
 
-<!-- Internships Section -->
-<div class="section">
-  <h3>Internships</h3>
-  <div class="internship">
-    <h4>Internship Title</h4>
-    <p class="internship-duration">Duration: <span>Jun 2023 – Aug 2023</span></p>
-    <p class="internship-company">Company: <span>XYZ Corp</span></p>
-    <p class="internship-description">Brief description of the internship, focusing on responsibilities and skills gained.</p>
-  </div>
-  <!-- Add more internships as needed -->
-</div>
-<!-- On left side: dropdown select for Languages Known -->
-<label for="languagesSelect">Language Known</label>
-<select id="languagesSelect">
-  <option value="">Select a language</option>
-  <option value="English">English</option>
-  <option value="Hindi">Hindi</option>
-  <option value="Telugu">Telugu</option>
-  <option value="Spanish">Spanish</option>
-  <!-- Add more languages options -->
-</select>
+          <div class="section">
+            <h3>Internships</h3>
+            <div id="resumeInternship">
+              <h4>Internship Title</h4>
+              <p class="company">Company: …</p>
+              <p class="duration">Duration: …</p>
+              <p class="resp">Responsibilities…</p>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>Languages</h3>
+            <p id="resumeLanguages">Selected languages</p>
+          </div>
         </div>
+      </div>
+      <div class="actions">
+        <button id="downloadBtn">Download Resume</button>
       </div>
     </div>
   </div>
 
-  <!-- Include html2pdf.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
   <script>
-    document.getElementById("generateBtn").addEventListener("click", generateResume);
+    document.addEventListener('DOMContentLoaded', () => {
+      const generateBtn = document.getElementById('generateBtn');
+      const resumePreview = document.getElementById('resumePreview');
+      const resumeName = document.getElementById('resumeName');
+      const resumeRole = document.getElementById('resumeRole');
+      const resumeEmail = document.getElementById('resumeEmail');
+      const resumePhone = document.getElementById('resumePhone');
+      const resumeSkills = document.getElementById('resumeSkills');
+      const resumeExperience = document.getElementById('resumeExperience');
+      const resumeEducation = document.getElementById('resumeEducation');
+      const resumeProject = document.getElementById('resumeProject');
+      const resumeInternship = document.getElementById('resumeInternship');
+      const resumeLanguages = document.getElementById('resumeLanguages');
 
-    function generateResume() {
-      // Get values from input fields
-      let name = document.getElementById("name").value;
-      let email = document.getElementById("email").value;
-      let phone = document.getElementById("phone").value;
-      let skills = document.getElementById("skills").value;
-      let experience = document.getElementById("experience").value;
-      let education = document.getElementById("education").value;
+      generateBtn.addEventListener('click', () => {
+        // Personal Details
+        resumeName.textContent = document.getElementById('name').value || 'Your Name';
+        resumeRole.textContent = document.getElementById('role').value || 'Your Role';
+        resumeEmail.textContent = document.getElementById('email').value || 'your@email.com';
+        resumePhone.textContent = document.getElementById('phone').value || '000-000-0000';
 
-      // Update resume preview
-      document.getElementById("resumeName").innerText = name || "Your Name";
-      document.getElementById("resumeEmail").innerText = email || "your@email.com";
-      document.getElementById("resumePhone").innerText = phone || "000-000-0000";
-      document.getElementById("resumeSkills").innerText = skills || "Your Skills";
-      document.getElementById("resumeExperience").innerText = experience || "Your Work Experience";
-      document.getElementById("resumeEducation").innerText = education || "Your Education Details";
+        // Skills
+        const skills = document.getElementById('skills').value.split(',').map(skill => skill.trim());
+        resumeSkills.innerHTML = skills.length ? skills.map(skill => `<span class="chip">${skill}</span>`).join(' ') : 'Your Skills';
 
-      // Generate PDF using html2pdf.js
-      var element = document.getElementById("resumePreview");
-      var opt = {
-        margin: 0.5,
-        filename: (name || "Resume") + '_Resume.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-      };
-      html2pdf().from(element).set(opt).save();
-    }
+        // Experience
+        resumeExperience.textContent = document.getElementById('experience').value || 'Your Work Experience';
+
+        // Education
+        resumeEducation.textContent = document.getElementById('education').value || 'Your Education';
+
+        // Project
+        const projectTitle = document.getElementById('projectTitle').value;
+        const projectTech = document.getElementById('projectTech').value;
+        const projectDesc = document.getElementById('projectDesc').value;
+        const projectLink = document.getElementById('projectLink').value;
+        resumeProject.innerHTML = projectTitle ? `
+          <h4>${projectTitle}</h4>
+          <p class="tech">Tech: ${projectTech}</p>
+          <p class="desc">${projectDesc}</p>
+          <p class="link"><a href="${projectLink}" target="_blank">Link</a></p>
+        ` : 'No projects added';
+
+        // Internship
+        const internPosition = document.getElementById('internPosition').value;
+        const internCompany = document.getElementById('internCompany').value;
+        const internDuration = document.getElementById('internDuration').value;
+        const internResponsibilities = document.getElementById('internResponsibilities').value;
+        resumeInternship.innerHTML = internPosition ? `
+          <h4>${internPosition}</h4>
+          <p class="company">Company: ${internCompany}</p>
+          <p class="duration">Duration: ${internDuration}</p>
+          <p class="resp">${internResponsibilities}</p>
+        ` : 'No internships added';
+
+        // Languages
+        const languages = Array.from(document.getElementById('languagesSelect').selectedOptions).map(option => option.value);
+        resumeLanguages.textContent = languages.length ? languages.join(', ') : 'No languages selected';
+
+        // Toggle visibility
+        document.querySelector('.form-panel').style.display = 'none';
+        resumePreview.style.display = 'block';
+      });
+
+      // PDF Export
+      document.getElementById('downloadBtn').addEventListener('click', () => {
+        const resumeElement = document.getElementById('resume');
+        html2pdf()
+          .from(resumeElement)
+          .save('resume.pdf');
+      });
+    });
   </script>
 </body>
 </html>
