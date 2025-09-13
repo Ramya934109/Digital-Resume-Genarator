@@ -1,10 +1,16 @@
 // script.js
 document.addEventListener('DOMContentLoaded', () => {
+  // Fields in form
   const fields = ['name','title','email','phone','summary','education','skills','experience','projects','links'];
   const els = {};
-  fields.forEach(f => els[f] = document.getElementById(f));
+  fields.forEach(f => {
+    els[f] = document.getElementById(f);
+  });
 
-  // preview elements
+  // The new select for Languages
+  const languagesSelect = document.getElementById('languagesSelect');
+
+  // Preview elements
   const cvName = document.getElementById('cvName');
   const cvTitle = document.getElementById('cvTitle');
   const cvEmail = document.getElementById('cvEmail');
@@ -15,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cvExperience = document.getElementById('cvExperience');
   const cvProjects = document.getElementById('cvProjects');
   const cvLinks = document.getElementById('cvLinks');
+  const cvLanguages = document.getElementById('resumeLanguages');  // where selected language will show
 
   const templateSelect = document.getElementById('templateSelect');
   const resumeEl = document.getElementById('resume');
@@ -28,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cvPhone.textContent = els.phone.value.trim() || '+91 xxxxx xxxxx';
     cvSummary.textContent = els.summary.value.trim() || 'Short professional summary goes here.';
 
-    // Education: split by newline
+    // Education (newline -> list items)
     cvEducation.innerHTML = '';
     els.education.value.split('\n').map(s => s.trim()).filter(Boolean).forEach(item => {
       const li = document.createElement('li');
@@ -36,18 +43,18 @@ document.addEventListener('DOMContentLoaded', () => {
       cvEducation.appendChild(li);
     });
 
-    // Skills: comma separated
+    // Skills: comma separated, chips
     cvSkills.innerHTML = '';
-    els.skills.value.split(',').map(s=>s.trim()).filter(Boolean).slice(0,30).forEach(skill=>{
+    els.skills.value.split(',').map(s => s.trim()).filter(Boolean).slice(0,30).forEach(skill => {
       const span = document.createElement('span');
       span.className = 'chip';
       span.textContent = skill;
       cvSkills.appendChild(span);
     });
 
-    // Experience: newline -> li
+    // Experience
     cvExperience.innerHTML = '';
-    els.experience.value.split('\n').map(s=>s.trim()).filter(Boolean).forEach(item=>{
+    els.experience.value.split('\n').map(s => s.trim()).filter(Boolean).forEach(item => {
       const li = document.createElement('li');
       li.textContent = item;
       cvExperience.appendChild(li);
@@ -55,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Projects
     cvProjects.innerHTML = '';
-    els.projects.value.split('\n').map(s=>s.trim()).filter(Boolean).forEach(item=>{
+    els.projects.value.split('\n').map(s => s.trim()).filter(Boolean).forEach(item => {
       const li = document.createElement('li');
       li.textContent = item;
       cvProjects.appendChild(li);
@@ -63,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Links
     cvLinks.innerHTML = '';
-    els.links.value.split(',').map(s=>s.trim()).filter(Boolean).forEach(link=>{
+    els.links.value.split(',').map(s => s.trim()).filter(Boolean).forEach(link => {
       const a = document.createElement('a');
       a.href = link;
       a.textContent = link;
@@ -72,36 +79,59 @@ document.addEventListener('DOMContentLoaded', () => {
       a.style.color = '#1b6fbf';
       cvLinks.appendChild(a);
     });
+
+    // Languages Known — from select
+    if(languagesSelect) {
+      const selectedLang = languagesSelect.value;
+      cvLanguages.textContent = selectedLang && selectedLang.trim() !== '' ? selectedLang : 'Languages Known';
+    }
   }
 
-  // initial update
+  // Initial preview
   updatePreview();
 
-  // attach listeners
-  fields.forEach(f => els[f].addEventListener('input', updatePreview));
+  // Event listeners for form input fields
+  fields.forEach(f => {
+    if (els[f]) {
+      els[f].addEventListener('input', updatePreview);
+    }
+  });
+
+  // Listener for languages select
+  if (languagesSelect) {
+    languagesSelect.addEventListener('change', updatePreview);
+  }
+
+  // Template selection
   templateSelect.addEventListener('change', () => {
     const t = templateSelect.value;
     resumeEl.className = (t === 'classic') ? 'template-classic' : 'template-modern';
   });
 
-  // download pdf
+  // Download PDF
   downloadBtn.addEventListener('click', () => {
-    // small validation
-    const name = els.name.value.trim() || 'resume';
+    const nameVal = els.name.value.trim() || 'resume';
     const opt = {
       margin:       0.3,
-      filename:     `${name.replace(/\s+/g,'_')}_Resume.pdf`,
+      filename:     `${nameVal.replace(/\s+/g, '_')}_Resume.pdf`,
       image:        { type: 'jpeg', quality: 0.98 },
       html2canvas:  { scale: 2, useCORS: true },
       jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
     };
 
-    // generate
     html2pdf().set(opt).from(resumeEl).save();
   });
 
+  // Reset button
   resetBtn.addEventListener('click', () => {
-    fields.forEach(f => els[f].value = '');
+    fields.forEach(f => {
+      if (els[f]) {
+        els[f].value = '';
+      }
+    });
+    if (languagesSelect) {
+      languagesSelect.value = '';  // reset select also
+    }
     updatePreview();
   });
 });
