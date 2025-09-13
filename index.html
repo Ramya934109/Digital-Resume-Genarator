@@ -1,102 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="styles.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Resume Generator</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-
-    header {
-      text-align: center;
-      padding: 40px 20px;
-      background-color: #1E3A8A; /* Professional Navy Blue */
-      color: white;
-    }
-
-    header h1 {
-      font-size: 55px; /* Big size */
-      margin: 0;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-
-    form {
-      max-width: 650px;
-      margin: 30px auto;
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-
-    form label {
-      font-weight: 600;
-      display: block;
-      margin-top: 15px;
-      color: #1E3A8A;
-    }
-
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 6px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 15px;
-    }
-
-    button {
-      margin-top: 20px;
-      padding: 12px;
-      background-color: #1E3A8A; /* Professional Button */
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 18px;
-      width: 100%;
-      font-weight: 600;
-    }
-
-    button:hover {
-      background-color: #162c6b; /* Darker Navy */
-    }
-  </style>
+  <title>Resume Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
   <header>
-    <h1>Digital Resume Generator</h1>
+    <h1>Resume Generator</h1>
   </header>
 
-  <form>
-    <label for="name">Full Name:</label>
-    <input type="text" id="name" name="name" required>
+  <div class="container">
+    <!-- Form Panel -->
+    <div class="panel form-panel">
+      <h2>Enter Your Details</h2>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="John Doe">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="john@example.com">
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" placeholder="123-456-7890">
+      <label for="skills">Skills</label>
+      <textarea id="skills" placeholder="e.g., HTML, CSS, JavaScript"></textarea>
+      <label for="experience">Experience</label>
+      <textarea id="experience" placeholder="e.g., 3 years at XYZ Corp"></textarea>
+      <label for="education">Education</label>
+      <textarea id="education" placeholder="e.g., B.Tech in Computer Science"></textarea>
+      <!-- Projects Section -->
+<section class="section projects">
+  <h3>Projects</h3>
+  <div class="project">
+    <label for="projectTitle">Project Title</label>
+    <input type="text" id="projectTitle" placeholder="e.g., Personal Portfolio">
+    
+    <label for="projectTech">Technologies Used</label>
+    <input type="text" id="projectTech" placeholder="e.g., HTML, CSS, JavaScript">
+    
+    <label for="projectDesc">Description</label>
+    <textarea id="projectDesc" placeholder="e.g., A responsive personal portfolio website"></textarea>
+    
+    <label for="projectLink">Project Link</label>
+    <input type="url" id="projectLink" placeholder="https://example.com">
+  </div>
+  <!-- Add more projects as needed -->
+</section>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+<!-- Internships Section -->
+<section class="section internships">
+  <h3>Internships</h3>
+  <div class="internship">
+    <label for="internPosition">Position</label>
+    <input type="text" id="internPosition" placeholder="e.g., Frontend Developer Intern">
+    
+    <label for="internCompany">Company</label>
+    <input type="text" id="internCompany" placeholder="e.g., XYZ Corp">
+    
+    <label for="internDuration">Duration</label>
+    <input type="text" id="internDuration" placeholder="e.g., June 2024 – August 2024">
+    
+    <label for="internResponsibilities">Responsibilities</label>
+    <textarea id="internResponsibilities" placeholder="e.g., Developed UI components using React"></textarea>
+  </div>
+  <!-- Add more internships as needed -->
+</section>
 
-    <label for="phone">Phone:</label>
-    <input type="text" id="phone" name="phone" required>
+      <div class="actions">
+        <button id="generateBtn">Generate Resume</button>
+      </div>
+    </div>
 
-    <label for="education">Education:</label>
-    <textarea id="education" name="education" rows="3"></textarea>
+    <!-- Preview Panel -->
+    <div class="panel preview-panel">
+      <div id="resumePreview">
+        <div id="resume">
+          <div class="header">
+            <div class="name" id="resumeName">Your Name</div>
+            <div class="role" id="resumeRole">Your Role</div>
+          </div>
+          <div class="contact">
+            <p id="resumeEmail">your@email.com</p>
+            <p id="resumePhone">000-000-0000</p>
+          </div>
+          <div class="section">
+            <h3>Skills</h3>
+            <p id="resumeSkills">Your Skills</p>
+          </div>
+          <div class="section">
+            <h3>Experience</h3>
+            <p id="resumeExperience">Your Work Experience</p>
+          </div>
+          <div class="section">
+            <h3>Education</h3>
+            <p id="resumeEducation">Your Education Details</p>
+          </div>
 
-    <label for="skills">Skills:</label>
-    <textarea id="skills" name="skills" rows="3"></textarea>
+          <!-- Projects Section -->
+<div class="section">
+  <h3>Projects</h3>
+  <div class="project">
+    <h4>Project Title</h4>
+    <p class="project-duration">Duration: <span>Jan 2024 – Mar 2024</span></p>
+    <p class="project-description">Brief description of the project, highlighting your role and key achievements.</p>
+  </div>
+  <!-- Add more projects as needed -->
+</div>
 
-    <label for="experience">Experience:</label>
-    <textarea id="experience" name="experience" rows="3"></textarea>
+<!-- Internships Section -->
+<div class="section">
+  <h3>Internships</h3>
+  <div class="internship">
+    <h4>Internship Title</h4>
+    <p class="internship-duration">Duration: <span>Jun 2023 – Aug 2023</span></p>
+    <p class="internship-company">Company: <span>XYZ Corp</span></p>
+    <p class="internship-description">Brief description of the internship, focusing on responsibilities and skills gained.</p>
+  </div>
+  <!-- Add more internships as needed -->
+</div>
+<!-- On left side: dropdown select for Languages Known -->
+<label for="languagesSelect">Language Known</label>
+<select id="languagesSelect">
+  <option value="">Select a language</option>
+  <option value="English">English</option>
+  <option value="Hindi">Hindi</option>
+  <option value="Telugu">Telugu</option>
+  <option value="Spanish">Spanish</option>
+  <!-- Add more languages options -->
+</select>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <button type="submit">Generate Resume</button>
-  </form>
+  <!-- Include html2pdf.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
+  <script>
+    document.getElementById("generateBtn").addEventListener("click", generateResume);
 
+    function generateResume() {
+      // Get values from input fields
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let phone = document.getElementById("phone").value;
+      let skills = document.getElementById("skills").value;
+      let experience = document.getElementById("experience").value;
+      let education = document.getElementById("education").value;
+
+      // Update resume preview
+      document.getElementById("resumeName").innerText = name || "Your Name";
+      document.getElementById("resumeEmail").innerText = email || "your@email.com";
+      document.getElementById("resumePhone").innerText = phone || "000-000-0000";
+      document.getElementById("resumeSkills").innerText = skills || "Your Skills";
+      document.getElementById("resumeExperience").innerText = experience || "Your Work Experience";
+      document.getElementById("resumeEducation").innerText = education || "Your Education Details";
+
+      // Generate PDF using html2pdf.js
+      var element = document.getElementById("resumePreview");
+      var opt = {
+        margin: 0.5,
+        filename: (name || "Resume") + '_Resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().from(element).set(opt).save();
+    }
+  </script>
 </body>
 </html>
